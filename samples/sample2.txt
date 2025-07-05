@@ -1,0 +1,7 @@
+Weekly Review – July 3
+
+- Client feedback on onboarding was positive.
+- Priya to revise onboarding slides by July 8.
+- Migration to new database planned for July 20.
+- Discussed switching to AWS for cloud hosting.
+- Sneha will lead the infrastructure cost review.
