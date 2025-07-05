@@ -8,11 +8,11 @@ const processMeeting = require("./routes/processMeeting");
 
 const app = express();
 
-// Configure multer for file uploads
+
 const upload = multer({
   dest: "uploads/",
   fileFilter: (req, file, cb) => {
-    // Only allow text files
+    
     if (file.mimetype === "text/plain" || file.originalname.endsWith(".txt")) {
       cb(null, true);
     } else {
@@ -21,11 +21,11 @@ const upload = multer({
   },
 });
 
-// Middleware
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// CORS headers
+
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
@@ -40,7 +40,7 @@ app.use((req, res, next) => {
   }
 });
 
-// Health check endpoint
+
 app.get("/", (req, res) => {
   res.json({
     message: "Meeting Minutes Extractor API",
@@ -51,12 +51,12 @@ app.get("/", (req, res) => {
   });
 });
 
-// Process meeting endpoint with file cleanup
+
 app.post("/process-meeting", upload.single("file"), async (req, res) => {
   try {
     const result = await processMeeting(req, res);
 
-    // Clean up uploaded file after processing
+    
     if (req.file && req.file.path) {
       fs.unlink(req.file.path, (err) => {
         if (err) console.error("Error deleting file:", err);
@@ -65,7 +65,7 @@ app.post("/process-meeting", upload.single("file"), async (req, res) => {
 
     return result;
   } catch (error) {
-    // Clean up uploaded file on error
+    
     if (req.file && req.file.path) {
       fs.unlink(req.file.path, (err) => {
         if (err) console.error("Error deleting file:", err);
@@ -77,7 +77,7 @@ app.post("/process-meeting", upload.single("file"), async (req, res) => {
   }
 });
 
-// Error handling middleware
+
 app.use((error, req, res, next) => {
   console.error("❌ Server error:", error);
   res.status(500).json({ error: error.message });

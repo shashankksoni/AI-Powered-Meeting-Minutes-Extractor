@@ -2,7 +2,7 @@ require("dotenv").config();
 const fs = require("fs");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-// Check if API key is provided
+
 if (!process.env.GEMINI_API_KEY) {
   console.error("❌ GEMINI_API_KEY is not set in environment variables");
   console.error("Please create a .env file with your Gemini API key");
@@ -12,7 +12,7 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
 
 module.exports = async (req, res) => {
   try {
-    // Check if API key is available
+    
     if (!process.env.GEMINI_API_KEY) {
       return res.status(500).json({
         error:
@@ -51,7 +51,7 @@ ${meetingText}
 
     let parsedResult;
     try {
-      // Clean the response - remove markdown code blocks if present
+      
       let cleanReply = reply.trim();
       if (cleanReply.startsWith("```json")) {
         cleanReply = cleanReply
@@ -75,7 +75,7 @@ ${meetingText}
   } catch (err) {
     console.error("❌ Error processing meeting:", err);
 
-    // Handle specific API errors
+    
     if (err.message.includes("API key")) {
       return res.status(401).json({
         error:

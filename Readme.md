@@ -28,19 +28,20 @@ Build a **Node.js backend** service that:
 
 ## 🚀 Setup Instructions
 
-### Prerequisites
+## Tech Stack
 
-- Node.js (v14 or higher)
-- Google Gemini API key
+- Node.js
+- Express.js
+- Multer (for file upload)
+- Google Generative AI (Gemini API)
 
 ### Installation
 
 1. **Clone the repository**
 
-   ```bash
-   git clone <repository-url>
-   cd AI-Powered-Meeting-Minutes-Extractor
-   ```
+  ```bash
+  git clone https://github.com/shashankksoni/AI-Powered-Meeting-Minutes-Extractor.git
+  cd AI-Powered-Meeting-Minutes-Extractor
 
 2. **Install dependencies**
 
@@ -49,19 +50,14 @@ Build a **Node.js backend** service that:
    ```
 
 3. **Create environment file**
-
-   ```bash
-   cp .env.example .env
-   ```
-
-   Add your Gemini API key to `.env`:
+   Create a .env file in the root and add:
 
    ```
    GEMINI_API_KEY=your_gemini_api_key_here
    PORT=3000
    ```
 
-4. **Get a Gemini API Key**
+5. **Get a Gemini API Key**
    - Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
    - Create a new API key
    - Add it to your `.env` file
@@ -69,7 +65,8 @@ Build a **Node.js backend** service that:
 ### Running the Application
 
 ```bash
-npm start
+npm start or
+node index.js
 ```
 
 The server will start at `http://localhost:3000`
@@ -81,6 +78,7 @@ The server will start at `http://localhost:3000`
 ```bash
 GET /
 ```
+Returns a simple status JSON.
 
 ### Process Meeting Notes
 
@@ -107,6 +105,19 @@ curl -X POST http://localhost:3000/process-meeting \
     "text": "Team Sync – May 26\n- We will launch the new product on June 10.\n- Ravi to prepare onboarding docs by June 5.\n- Priya will follow up with logistics team on packaging delay.\n- Beta users requested a mobile-first dashboard."
   }'
 ```
+
+#### Method 3: Test via Postman
+
+  URL: http://localhost:3000/process-meeting
+
+  Method: POST
+
+  Use either:
+
+  form-data: key = file, value = .txt file
+
+  raw: JSON body with "text": "..."
+
 
 ## 📊 Sample API Input
 
@@ -175,14 +186,6 @@ curl -X POST http://localhost:3000/process-meeting \
   }'
 ```
 
-## 🛡️ Error Handling
-
-The API handles various error scenarios:
-
-- **400**: Missing or invalid input
-- **401**: Invalid API key
-- **429**: API quota exceeded
-- **500**: Server or AI processing errors
 
 ## 📋 Project Structure
 
@@ -199,20 +202,4 @@ The API handles various error scenarios:
 └── README.md
 ```
 
-## 🔄 Deliverables Checklist
 
-- ✅ **GitHub repo** with all files
-- ✅ **README.md** with setup instructions
-- ✅ **curl examples** for testing
-- ✅ **Sample outputs** in JSON format
-- ✅ **2 sample .txt files** for demonstration
-- ✅ **Complete error handling**
-- ✅ **Clean JSON response format**
-
-## 📅 Timeline
-
-This project was completed within the 2-day timeline requirement.
-
-## 📄 License
-
-ISC License
