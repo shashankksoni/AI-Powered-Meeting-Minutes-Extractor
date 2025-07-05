@@ -41,7 +41,8 @@ Build a **Node.js backend** service that:
 
   ```bash
   git clone https://github.com/shashankksoni/AI-Powered-Meeting-Minutes-Extractor.git
-  cd AI-Powered-Meeting-Minutes-Extractor```
+  cd AI-Powered-Meeting-Minutes-Extractor
+ ```
 
 2. **Install dependencies**
 
