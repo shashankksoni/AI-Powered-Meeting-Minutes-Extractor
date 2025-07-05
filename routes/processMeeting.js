@@ -4,7 +4,7 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 
 if (!process.env.GEMINI_API_KEY) {
-  console.error("❌ GEMINI_API_KEY is not set in environment variables");
+  console.error("GEMINI_API_KEY is not set in environment variables");
   console.error("Please create a .env file with your Gemini API key");
 }
 
@@ -63,7 +63,7 @@ ${meetingText}
 
       parsedResult = JSON.parse(cleanReply);
     } catch (parseError) {
-      console.error("❌ Failed to parse AI response as JSON:", reply);
+      console.error("Failed to parse AI response as JSON:", reply);
       return res.status(500).json({
         error: "AI response could not be parsed as JSON",
         raw: reply,
@@ -73,7 +73,7 @@ ${meetingText}
 
     res.json(parsedResult);
   } catch (err) {
-    console.error("❌ Error processing meeting:", err);
+    console.error("Error processing meeting:", err);
 
     
     if (err.message.includes("API key")) {
