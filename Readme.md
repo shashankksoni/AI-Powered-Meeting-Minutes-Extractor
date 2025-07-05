@@ -186,14 +186,6 @@ curl -X POST http://localhost:3000/process-meeting \
   }'
 ```
 
-## 🛡️ Error Handling
-
-The API handles various error scenarios:
-
-- **400**: Missing or invalid input
-- **401**: Invalid API key
-- **429**: API quota exceeded
-- **500**: Server or AI processing errors
 
 ## 📋 Project Structure
 
