@@ -72,18 +72,18 @@ app.post("/process-meeting", upload.single("file"), async (req, res) => {
       });
     }
 
-    console.error("❌ Error processing meeting:", error);
+    console.error("Error processing meeting:", error);
     res.status(500).json({ error: error.message });
   }
 });
 
 
 app.use((error, req, res, next) => {
-  console.error("❌ Server error:", error);
+  console.error("Server error:", error);
   res.status(500).json({ error: error.message });
 });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () =>
-  console.log(`✅ Server running at http://localhost:${PORT}`)
+  console.log(`Server running at http://localhost:${PORT}`)
 );
