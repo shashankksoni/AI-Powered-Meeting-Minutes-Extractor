@@ -199,7 +199,7 @@ curl -X POST http://localhost:3000/process-meeting \
 │   └── sample2.txt
 ├── uploads/              # Temporary file storage
 ├── package.json
-├── .env.example
+├── .env
 └── README.md
 ```
 
