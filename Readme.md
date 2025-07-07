@@ -192,7 +192,7 @@ curl -X POST http://localhost:3000/process-meeting \
 
 ```
 ├── index.js              # Main server file
-├── routes/
+├── controller/
 │   └── processMeeting.js # Meeting processing logic
 ├── samples/              # Sample meeting files
 │   ├── sample1.txt
@@ -202,5 +202,5 @@ curl -X POST http://localhost:3000/process-meeting \
 ├── .env
 └── README.md
 ```
-
+<p align="center"> Made with by Shashank Kumar Soni </p>
 
