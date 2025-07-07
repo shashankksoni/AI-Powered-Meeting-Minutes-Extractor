@@ -202,5 +202,5 @@ curl -X POST http://localhost:3000/process-meeting \
 ├── .env
 └── README.md
 ```
-<p align="center"> Made with by Shashank Kumar Soni </p>
+<p align="center"> Made by Shashank Kumar Soni </p>
 
