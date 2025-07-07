@@ -4,7 +4,7 @@ const express = require("express");
 const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
-const processMeeting = require("./routes/processMeeting");
+const processMeeting = require("./controller/processMeeting");
 
 const app = express();
 
